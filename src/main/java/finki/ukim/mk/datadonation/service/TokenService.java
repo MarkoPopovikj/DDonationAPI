@@ -1,8 +1,8 @@
 package finki.ukim.mk.datadonation.service;
 
-import finki.ukim.mk.datadonation.model.User;
-import finki.ukim.mk.datadonation.model.dto.TokenWrapperDto;
-import finki.ukim.mk.datadonation.model.enums.TokenType;
+import finki.ukim.mk.datadonation.domain.models.User;
+import finki.ukim.mk.datadonation.domain.dto.TokenWrapperDto;
+import finki.ukim.mk.datadonation.domain.enums.TokenType;
 import io.jsonwebtoken.Claims;
 
 public interface TokenService {

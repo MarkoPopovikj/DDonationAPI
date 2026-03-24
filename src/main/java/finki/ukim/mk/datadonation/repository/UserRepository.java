@@ -1,14 +1,13 @@
 package finki.ukim.mk.datadonation.repository;
 
-import finki.ukim.mk.datadonation.model.User;
-import finki.ukim.mk.datadonation.model.enums.UserRole;
+import finki.ukim.mk.datadonation.domain.models.User;
+import finki.ukim.mk.datadonation.domain.enums.UserRole;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 

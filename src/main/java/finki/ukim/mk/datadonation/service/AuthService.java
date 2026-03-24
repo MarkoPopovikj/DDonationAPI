@@ -1,9 +1,9 @@
 package finki.ukim.mk.datadonation.service;
 
-import finki.ukim.mk.datadonation.model.dto.AuthDto;
-import finki.ukim.mk.datadonation.request.auth.LoginRequest;
-import finki.ukim.mk.datadonation.request.auth.RefreshTokenRequest;
-import finki.ukim.mk.datadonation.request.auth.RegisterRequest;
+import finki.ukim.mk.datadonation.domain.dto.AuthDto;
+import finki.ukim.mk.datadonation.web.request.auth.LoginRequest;
+import finki.ukim.mk.datadonation.web.request.auth.RefreshTokenRequest;
+import finki.ukim.mk.datadonation.web.request.auth.RegisterRequest;
 
 public interface AuthService {
 

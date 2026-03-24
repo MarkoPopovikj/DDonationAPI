@@ -1,9 +1,10 @@
 package finki.ukim.mk.datadonation.service.impl;
 
-import finki.ukim.mk.datadonation.model.User;
-import finki.ukim.mk.datadonation.model.enums.UserRole;
+import finki.ukim.mk.datadonation.domain.dto.AdminDto;
+import finki.ukim.mk.datadonation.domain.models.User;
+import finki.ukim.mk.datadonation.domain.enums.UserRole;
 import finki.ukim.mk.datadonation.repository.UserRepository;
-import finki.ukim.mk.datadonation.request.AdminRequest;
+import finki.ukim.mk.datadonation.web.request.AdminRequest;
 import finki.ukim.mk.datadonation.service.AdminService;
 import finki.ukim.mk.datadonation.service.UserConsentService;
 import finki.ukim.mk.datadonation.service.UserService;
@@ -41,22 +42,22 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional
-    public User createAdminUser(AdminRequest adminRequest) {
-        if (!adminRequest.getPassword().equals(adminRequest.getConfirmPassword())) {
+    public User createAdminUser(AdminDto adminDto) {
+        if (!adminDto.getPassword().equals(adminDto.getConfirmPassword())) {
             throw new IllegalArgumentException("Passwords do not match");
         }
 
-        if (this.userService.checkAvailability(adminRequest.getUsername(), adminRequest.getEmail())) {
+        if (this.userService.checkAvailability(adminDto.getUsername(), adminDto.getEmail())) {
             throw new IllegalArgumentException("Username or Email is already taken");
         }
 
         User user = new User();
 
-        user.setEmail(adminRequest.getEmail());
-        user.setUsername(adminRequest.getUsername());
-        user.setPassword(passwordEncoder.encode(adminRequest.getPassword()));
-        user.setAvatarUrl(generatePlaceholder(adminRequest.getUsername()));
-        user.setRole(adminRequest.getRole());
+        user.setEmail(adminDto.getEmail());
+        user.setUsername(adminDto.getUsername());
+        user.setPassword(passwordEncoder.encode(adminDto.getPassword()));
+        user.setAvatarUrl(generatePlaceholder(adminDto.getUsername()));
+        user.setRole(adminDto.getRole());
 
         User savedUser = this.userRepository.save(user);
         this.userConsentService.createUserConsent(savedUser.getId());

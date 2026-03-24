@@ -1,6 +1,6 @@
 package finki.ukim.mk.datadonation.config;
 
-import finki.ukim.mk.datadonation.security.JwtAuthenticationFilter;
+import finki.ukim.mk.datadonation.web.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;

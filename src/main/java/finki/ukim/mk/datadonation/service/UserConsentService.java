@@ -1,6 +1,6 @@
 package finki.ukim.mk.datadonation.service;
 
-import finki.ukim.mk.datadonation.model.UserConsent;
+import finki.ukim.mk.datadonation.domain.models.UserConsent;
 
 import java.util.UUID;
 

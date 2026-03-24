@@ -1,8 +1,8 @@
 package finki.ukim.mk.datadonation.service.impl;
 
-import finki.ukim.mk.datadonation.model.User;
+import finki.ukim.mk.datadonation.domain.dto.UserDto;
+import finki.ukim.mk.datadonation.domain.models.User;
 import finki.ukim.mk.datadonation.repository.UserRepository;
-import finki.ukim.mk.datadonation.request.UserRequest;
 import finki.ukim.mk.datadonation.service.StorageService;
 import finki.ukim.mk.datadonation.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
@@ -62,11 +62,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User updateUser(UUID id, UserRequest userRequest) {
+    public User updateUser(UUID id, UserDto userDto) {
         User user = getUserById(id);
 
-        if (userRequest.getDisplayName() != null) user.setDisplayName(userRequest.getDisplayName());
-        if (userRequest.getBio() != null) user.setBio(userRequest.getBio());
+        if (userDto.getDisplayName() != null) user.setDisplayName(userDto.getDisplayName());
+        if (userDto.getBio() != null) user.setBio(userDto.getBio());
 
         return this.userRepository.save(user);
     }

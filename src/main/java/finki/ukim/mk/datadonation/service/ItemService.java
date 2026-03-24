@@ -1,7 +1,8 @@
 package finki.ukim.mk.datadonation.service;
 
-import finki.ukim.mk.datadonation.model.Item;
-import finki.ukim.mk.datadonation.request.ItemRequest;
+import finki.ukim.mk.datadonation.domain.dto.ItemDto;
+import finki.ukim.mk.datadonation.domain.models.Item;
+import finki.ukim.mk.datadonation.web.request.ItemRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,7 +16,7 @@ public interface ItemService {
 
     Item getItemById(UUID id, UUID userId);
 
-    Item createItem(UUID userId, ItemRequest itemRequest);
+    Item createItem(UUID userId, ItemDto itemDto);
 
     void deleteItem(UUID itemId, UUID userId);
 }

@@ -1,12 +1,12 @@
 package finki.ukim.mk.datadonation.service.impl;
 
-import finki.ukim.mk.datadonation.model.Item;
-import finki.ukim.mk.datadonation.model.User;
-import finki.ukim.mk.datadonation.model.enums.ItemCategory;
-import finki.ukim.mk.datadonation.model.enums.UserRole;
+import finki.ukim.mk.datadonation.domain.dto.ItemDto;
+import finki.ukim.mk.datadonation.domain.models.Item;
+import finki.ukim.mk.datadonation.domain.models.User;
+import finki.ukim.mk.datadonation.domain.enums.ItemCategory;
+import finki.ukim.mk.datadonation.domain.enums.UserRole;
 import finki.ukim.mk.datadonation.repository.ItemRepository;
-import finki.ukim.mk.datadonation.request.ItemRequest;
-import finki.ukim.mk.datadonation.response.ItemResponse;
+import finki.ukim.mk.datadonation.web.request.ItemRequest;
 import finki.ukim.mk.datadonation.service.ItemService;
 import finki.ukim.mk.datadonation.service.StorageService;
 import finki.ukim.mk.datadonation.service.UserService;
@@ -14,9 +14,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tika.Tika;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -72,9 +70,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     @Transactional
-    public Item createItem(UUID userId, ItemRequest itemRequest) {
+    public Item createItem(UUID userId, ItemDto itemDto) {
         User user = this.userService.getUserById(userId);
-        MultipartFile file = itemRequest.getFile();
+        MultipartFile file = itemDto.getFile();
 
         try {
             String detectedMimeType = tika.detect(file.getInputStream());
@@ -91,7 +89,7 @@ public class ItemServiceImpl implements ItemService {
             item.setFileSizeBytes(file.getSize());
             item.setMimeType(detectedMimeType);
             item.setCategory(category);
-            item.setLanguage(itemRequest.getLanguage());
+            item.setLanguage(itemDto.getLanguage());
             item.setDonor(user);
 
             return this.itemRepository.save(item);

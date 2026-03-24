@@ -1,7 +1,7 @@
 package finki.ukim.mk.datadonation.service.impl;
 
-import finki.ukim.mk.datadonation.model.User;
-import finki.ukim.mk.datadonation.model.UserConsent;
+import finki.ukim.mk.datadonation.domain.models.User;
+import finki.ukim.mk.datadonation.domain.models.UserConsent;
 import finki.ukim.mk.datadonation.repository.UserConsentRepository;
 import finki.ukim.mk.datadonation.service.UserConsentService;
 import finki.ukim.mk.datadonation.service.UserService;

@@ -1,6 +1,6 @@
 package finki.ukim.mk.datadonation.repository;
 
-import finki.ukim.mk.datadonation.model.Item;
+import finki.ukim.mk.datadonation.domain.models.Item;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

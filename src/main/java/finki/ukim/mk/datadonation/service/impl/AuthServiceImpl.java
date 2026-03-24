@@ -1,13 +1,13 @@
 package finki.ukim.mk.datadonation.service.impl;
 
-import finki.ukim.mk.datadonation.model.User;
-import finki.ukim.mk.datadonation.model.dto.AuthDto;
-import finki.ukim.mk.datadonation.model.dto.TokenWrapperDto;
-import finki.ukim.mk.datadonation.model.enums.TokenType;
+import finki.ukim.mk.datadonation.domain.models.User;
+import finki.ukim.mk.datadonation.domain.dto.AuthDto;
+import finki.ukim.mk.datadonation.domain.dto.TokenWrapperDto;
+import finki.ukim.mk.datadonation.domain.enums.TokenType;
 import finki.ukim.mk.datadonation.repository.UserRepository;
-import finki.ukim.mk.datadonation.request.auth.LoginRequest;
-import finki.ukim.mk.datadonation.request.auth.RefreshTokenRequest;
-import finki.ukim.mk.datadonation.request.auth.RegisterRequest;
+import finki.ukim.mk.datadonation.web.request.auth.LoginRequest;
+import finki.ukim.mk.datadonation.web.request.auth.RefreshTokenRequest;
+import finki.ukim.mk.datadonation.web.request.auth.RegisterRequest;
 import finki.ukim.mk.datadonation.service.AuthService;
 import finki.ukim.mk.datadonation.service.TokenService;
 import finki.ukim.mk.datadonation.service.UserConsentService;

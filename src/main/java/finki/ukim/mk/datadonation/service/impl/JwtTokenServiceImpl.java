@@ -1,9 +1,9 @@
 package finki.ukim.mk.datadonation.service.impl;
 
-import finki.ukim.mk.datadonation.model.User;
-import finki.ukim.mk.datadonation.model.dto.TokenDto;
-import finki.ukim.mk.datadonation.model.dto.TokenWrapperDto;
-import finki.ukim.mk.datadonation.model.enums.TokenType;
+import finki.ukim.mk.datadonation.domain.models.User;
+import finki.ukim.mk.datadonation.domain.dto.TokenDto;
+import finki.ukim.mk.datadonation.domain.dto.TokenWrapperDto;
+import finki.ukim.mk.datadonation.domain.enums.TokenType;
 import finki.ukim.mk.datadonation.service.TokenService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -15,9 +15,6 @@ import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
 
 @Slf4j
 @Service
