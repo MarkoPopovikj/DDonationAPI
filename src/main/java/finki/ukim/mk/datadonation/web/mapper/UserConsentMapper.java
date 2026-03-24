@@ -1,6 +1,7 @@
 package finki.ukim.mk.datadonation.web.mapper;
 
 import finki.ukim.mk.datadonation.domain.models.UserConsent;
+import finki.ukim.mk.datadonation.web.extensions.UserConsentExtensions;
 import finki.ukim.mk.datadonation.web.response.UserConsentResponse;
 import finki.ukim.mk.datadonation.service.UserConsentService;
 import org.springframework.stereotype.Component;
@@ -17,14 +18,13 @@ public class UserConsentMapper {
     }
 
     public UserConsentResponse getUserConsent(UUID id) {
-        return mapToResponse(this.userConsentService.getUserConsentById(id));
+        UserConsent userConsent = this.userConsentService.getUserConsentById(id);
+        return UserConsentExtensions.toResponse(userConsent);
     }
 
     public UserConsentResponse giveConsent(UUID id){
-        return mapToResponse(this.userConsentService.giveConsent(id));
+        UserConsent userConsent = this.userConsentService.giveConsent(id);
+        return UserConsentExtensions.toResponse(userConsent);
     }
 
-    private UserConsentResponse mapToResponse(UserConsent userConsent) {
-        return new UserConsentResponse(userConsent.getHasConsented());
-    }
 }
